@@ -1,1 +1,1 @@
-# azure-gaming-cloud
+# azure-gaming-cloud-test
