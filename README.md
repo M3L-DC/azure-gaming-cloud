@@ -1,6 +1,6 @@
 # azure-gaming
 
-## Project setup
+## Project setup (Front)
 ```
 yarn install
 ```
@@ -22,3 +22,18 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## Project setup (Back)
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+nodemon server.js
+```
+ou 
+```
+node server.js
+```
