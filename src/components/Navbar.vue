@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" type="dark" variant="dark">
       <b-navbar-brand style="margin-left: 24px">
-        <router-link class="item-decoration" to="/Home"
+        <router-link class="item-decoration" to="/"
           >Azure Gaming Cloud</router-link
         >
       </b-navbar-brand>
@@ -17,13 +17,25 @@
             >
           </b-nav-item>
           <b-nav-item>
-            <router-link class="item-decoration" to="/">Sign Out</router-link>
+            <button class="btn-decoration" type="button" @click="logOut">Sign Out</button>
           </b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    logOut(){
+      this.$router.push({ name: 'Home' });
+      this.$store.dispatch('signOut');
+      alert("logOut en cours");
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .right {
@@ -32,5 +44,10 @@
 .item-decoration {
   text-decoration: none;
   color: rgb(233, 231, 231);
+}
+.btn-decoration {
+  border: none !important;
+  background-color: inherit;
+  color: inherit !important;
 }
 </style>

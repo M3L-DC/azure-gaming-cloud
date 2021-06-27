@@ -15,10 +15,20 @@ export default new Vuex.Store({
     },
     LOGOUT(state) {
       state.currentUser.authenticated = false;
-      state.token = "";
     }
   },
   actions: {
+    signIn({ commit }){
+      commit('AUTHENTICATE_USER');
+    },
+    logOut({ commit }){
+      commit('LOGOUT');
+    }
+  },
+  getters: {
+    userIsAuthenticated(state){
+      return state.currentUser.authenticated === true;
+    }
   },
   modules: {
   }

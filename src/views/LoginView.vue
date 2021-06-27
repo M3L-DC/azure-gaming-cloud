@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5" style="max-width: 30rem; margin: auto">
+  <div class="pt-5" style="max-width: 30rem; margin: auto">
     <b-container class="login-container">
       <h1 style="color: rgb(233, 231, 231)">Connexion</h1>
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
@@ -54,9 +54,9 @@ export default {
   },
   methods: {
     onSubmit(event) {
-      this.$router.push({ path: "/" });
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      this.$router.push({ name: 'Home' });
+      this.$store.dispatch('signIn');
     },
     onReset(event) {
       event.preventDefault();
@@ -76,7 +76,6 @@ export default {
 <style lang="scss">
 .login-container {
   max-width: 720px !important;
-  margin-top: 100px ;
 }
 .label-form {
   text-align: left;

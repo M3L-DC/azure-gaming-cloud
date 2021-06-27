@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <Navbar />
-    <Login />
-    <router-view />
+    <Login v-if="$store.getters.userIsAuthenticated === false"/>
+    <div v-else>
+      <Navbar />
+      <router-view />
+    </div>
   </div>
 </template>
 
