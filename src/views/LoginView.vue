@@ -76,6 +76,7 @@ export default {
 <style lang="scss">
 .login-container {
   max-width: 720px !important;
+  margin-top: 100px;
 }
 .label-form {
   text-align: left;
