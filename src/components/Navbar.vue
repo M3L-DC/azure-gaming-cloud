@@ -29,8 +29,7 @@
 export default {
   methods: {
     logOut(){
-      this.$router.push({ name: 'Home' });
-      this.$store.dispatch('signOut');
+      this.$store.dispatch('logOut');
       alert("logOut en cours");
     }
   }
