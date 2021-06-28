@@ -20,7 +20,13 @@ pouvoir tester le projet. Un des identifiants ne doit pas permettre l’accès a
 jeu.
 * Un accès au code source du projet, avec sa documentation pour l’installer.
 
-## Decomposition du projet
+---
+## Technologies utilisé
+* VueJS => front
+* NodeJS => API
+* Azure cloud => gestion des VMs
+
+## Décomposition du projet
 Le projet est decomposé en plusieurs partie :
 * le frontend : qui contient l'application 
 * le backend : qui contient l'api
@@ -32,12 +38,12 @@ Le projet est decomposé en plusieurs partie :
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Lancer le front
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Créer/Lancer une production
 ```
 yarn build
 ```
