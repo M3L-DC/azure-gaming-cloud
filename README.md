@@ -1,9 +1,9 @@
-# azure-gaming
+# Azure Gaming 🎮💻
 
-## Contexte
+## Le contexte 📚
 Projet Azure qui a pour but de créer un Cloud Gaming sur Azure.
 
-## Consigne
+#### Consignes
 Le déroulé du projet est le suivant:
 * Le joueur s’identifie sur son portail web
 * Une fois authentifié, si il n’est pas autorisé, il ne peut pas lancer le jeu
@@ -13,7 +13,7 @@ Le déroulé du projet est le suivant:
 * Une fois la partie terminée, ou une fois le joueur déconnecté, ou après un
 timeout définit par avance, la VM est éteinte dans le cloud.
 
-## Livrable
+#### Livrable
 Le délivrable est en deux parties:
 * Le site du portail web, ainsi que deux identifiants et mots de passe pour
 pouvoir tester le projet. Un des identifiants ne doit pas permettre l’accès au
@@ -21,50 +21,56 @@ jeu.
 * Un accès au code source du projet, avec sa documentation pour l’installer.
 
 ---
-## Technologies utilisé
+
+## Le projet 📦🎓
+
+#### Technologies utilisé 📕
 * VueJS => front
 * NodeJS => API
 * Azure cloud => gestion des VMs
 
-## Décomposition du projet
+#### Décomposition du projet 🧐
 Le projet est decomposé en plusieurs partie :
 * le frontend : qui contient l'application 
 * le backend : qui contient l'api
 
 ---
 
-## Project setup (Front)
+## Project setup (Front) 🚀
+
+#### Installation
 ```
 yarn install
 ```
 
-### Lancer le front
+#### Lancer le front
 ```
 yarn serve
 ```
 
-### Créer/Lancer une production
+#### Créer/Lancer une production
 ```
 yarn build
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 yarn lint
 ```
 
-### Customize configuration
+#### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ---
 
-## Project setup (Back)
-### Installation
+## Project setup (Back) 🛸
+
+#### Installation
 ```
 npm install
 ```
 
-### Lancement de l'api
+#### Lancement de l'api
 ```
 nodemon server.js
 ```
@@ -72,3 +78,10 @@ ou
 ```
 node server.js
 ```
+
+---
+
+## Login credentials 🔑
+ - Identifiant : formateur@mail.com
+ - Mot de passe : formateur1234
+
