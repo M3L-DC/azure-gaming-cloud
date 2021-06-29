@@ -11,11 +11,8 @@ const routes = [
   //   name: 'Home',
   //   component: HomeView
   // },
-  {
-    path: '/catalogue',
-    name: 'Catalogue',
-    component: CatalogueView
-  }
+
+  { path: '/', name: 'Catalogue', component: CatalogueView },
 ]
 
 const router = new VueRouter({

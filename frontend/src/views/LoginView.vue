@@ -12,7 +12,7 @@
           <b-form-input
             class="border-form mt-2"
             id="input-1"
-            v-model="form.username"
+            v-model="username"
             type="text"
             placeholder="Enter username"
             required
@@ -28,13 +28,12 @@
           <b-form-input
             class="border-form mt-2"
             id="input-2"
-            v-model="form.password"
+            v-model="password"
             type="password"
             placeholder="Enter password"
             required
           ></b-form-input>
         </b-form-group>
-
         <b-button class="btn-connexion" type="submit">Se connecter</b-button>
       </b-form>
     </b-container>
@@ -45,18 +44,17 @@
 export default {
   data() {
     return {
-      form: {
-        username: "",
-        password: "",
-      },
+      username: "",
+      password: "",
       show: true,
     };
   },
   methods: {
     onSubmit(event) {
       event.preventDefault();
+      const { username, password } = this;
       this.$router.push({ name: "Catalogue" });
-      this.$store.dispatch("signIn");
+      this.$store.dispatch("signIn", { username, password });
     },
     onReset(event) {
       event.preventDefault();

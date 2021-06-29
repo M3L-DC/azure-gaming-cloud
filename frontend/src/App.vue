@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Login v-if="$store.getters.userIsAuthenticated === false"/>
+    <Login v-if="$store.getters.userIsAuthenticated === false" />
     <div v-else>
       <Navbar />
       <router-view />
@@ -15,12 +15,15 @@ import Login from "./views/LoginView.vue";
 export default {
   components: {
     Navbar,
-    Login
+    Login,
   },
 };
 </script>
 
 <style lang="scss">
+html, body {
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,7 +32,13 @@ export default {
   color: #2c3e50;
 
   background-image: url(./assets/background.png) !important;
-  height: 100vh;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // min-height: 100vh;
+  // max-height: 130vh;
 }
 
 #nav {

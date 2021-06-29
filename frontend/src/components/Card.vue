@@ -8,7 +8,7 @@
         :img-src="imgUrl"
         img-alt="Image"
         img-top
-        class="mb-2"
+        class="mb-3"
       />
       <button class="btn-play" variant="dark" @click="Play" v-if="active">
         Play
@@ -38,13 +38,19 @@ export default {
 <style lang="scss">
 .game-card {
   flex-direction: row;
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 .body-game-card {
   max-width: 20rem !important;
   background: none !important;
   border: none !important;
+}
+.card-title {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 12px;
 }
 .btn-play {
   background-color: #ff0000 !important;

@@ -18,12 +18,19 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    signIn({ commit }){
-      commit('AUTHENTICATE_USER');
+    signIn({ commit }, { username, password }){
+      if(username == "user" && password == "password"){
+        commit('AUTHENTICATE_USER');
+      } 
+      // else 
+      // {
+      //   const error = "Username ou mot de passe incorrect";
+      //   return Promise.reject(error);
+      // }
     },
     logout({ commit }){
       commit('LOGOUT');
-    }
+    },
   },
   getters: {
     userIsAuthenticated(state){
