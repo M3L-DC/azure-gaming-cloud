@@ -28,7 +28,7 @@ export default {
         "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
           "\n   Identifiant : user_" +
           "\n   Mot de passe : Password_001" +
-          "\n   Ip : 10.0.0.1:3389"
+          "\n   Ip : 20.199.120.167:3389"
       );
     },
   },

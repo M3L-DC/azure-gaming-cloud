@@ -6,7 +6,7 @@
         <Card
           :title="game.title"
           :active="game.active"
-          imgUrl="https://picsum.photos/600/300/?image=25"
+          imgUrl="https://cdn.discordapp.com/attachments/852104190753898527/859490144331628604/image-jeu.png"
         />
       </div>
     </div>

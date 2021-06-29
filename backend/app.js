@@ -15,13 +15,11 @@ app.use('/api/games', (req, res, next) => {
         {
             _id: 1,
             title: 'Tourelle',
-            imageUrl: '',
             active: true,
         },
         {
             _id: 2,
             title: 'Collectible',
-            imageUrl: '',
             active: false,
         },
     ];
