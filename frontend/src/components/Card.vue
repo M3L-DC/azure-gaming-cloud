@@ -4,12 +4,15 @@
       <b-card
         overlay
         :title="title"
+        :active="active"
         :img-src="imgUrl"
         img-alt="Image"
         img-top
         class="mb-2"
-      ></b-card>
-      <button class="btn-play" href="#" variant="dark">Play</button>
+      />
+      <button class="btn-play" variant="dark" @click="Play" v-if="active">
+        Play
+      </button>
     </b-card>
   </div>
 </template>
@@ -17,7 +20,18 @@
 <script>
 export default {
   name: "Card",
-  props: ["title", "imgUrl"],
+  props: ["title", "active", "imgUrl"],
+  methods: {
+    Play() {
+      alert("Demarage de la VM");
+      alert(
+        "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
+          "\n   Identifiant : user_" +
+          "\n   Mot de passe : Password_001" +
+          "\n   Ip : 10.0.0.1:3389"
+      );
+    },
+  },
 };
 </script>
 

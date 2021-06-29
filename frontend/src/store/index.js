@@ -21,7 +21,7 @@ export default new Vuex.Store({
     signIn({ commit }){
       commit('AUTHENTICATE_USER');
     },
-    logOut({ commit }){
+    logout({ commit }){
       commit('LOGOUT');
     }
   },

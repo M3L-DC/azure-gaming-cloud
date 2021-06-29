@@ -6,15 +6,15 @@
         <b-form-group
           class="label-form mt-3"
           id="input-group-1"
-          label="Email address:"
+          label="Username"
           label-for="input-1"
         >
           <b-form-input
             class="border-form mt-2"
             id="input-1"
-            v-model="form.email"
-            type="email"
-            placeholder="Enter email"
+            v-model="form.username"
+            type="text"
+            placeholder="Enter username"
             required
           ></b-form-input>
         </b-form-group>
@@ -22,13 +22,13 @@
         <b-form-group
           class="label-form mt-3"
           id="input-group-2"
-          label="Password:"
+          label="Password"
           label-for="input-2"
         >
           <b-form-input
             class="border-form mt-2"
             id="input-2"
-            v-model="form.name"
+            v-model="form.password"
             type="password"
             placeholder="Enter password"
             required
@@ -46,8 +46,8 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        name: "",
+        username: "",
+        password: "",
       },
       show: true,
     };
@@ -55,14 +55,14 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      this.$router.push({ name: 'Home' });
-      this.$store.dispatch('signIn');
+      this.$router.push({ name: "Catalogue" });
+      this.$store.dispatch("signIn");
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.email = "";
-      this.form.name = "";
+      this.form.username = "";
+      this.form.password = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
