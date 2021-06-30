@@ -19,7 +19,8 @@ export default new Vuex.Store({
   },
   actions: {
     signIn({ commit }, { username, password }){
-      if(username == "user" && password == "password"){
+      if(username == "a" && password == "a"){
+      // if(username == "user" && password == "password"){
         commit('AUTHENTICATE_USER');
       } 
       // else 

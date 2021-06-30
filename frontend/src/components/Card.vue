@@ -18,18 +18,41 @@
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
   name: "Card",
   props: ["title", "active", "imgUrl"],
+  data() {
+    return {
+      vmIsStarted: false,
+      errored: false,
+    };
+  },
   methods: {
     Play() {
-      alert("Demarage de la VM");
-      alert(
-        "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
-          "\n   Identifiant : user_" +
-          "\n   Mot de passe : Password_001" +
-          "\n   Ip : 20.199.120.167:3389"
-      );
+      // POST request using axios to start the vm
+      Axios.post("http://localhost:3000/api/games/start_vm")
+        .then((response) => {
+          console.log(response);
+          this.vmIsStarted = true;
+
+          if (this.vmIsStarted) {
+            console.log("Demarrage de la VM");
+            alert("Demarrage de la VM");
+            alert(
+              "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
+                "\n   Identifiant : user_" +
+                "\n   Mot de passe : Password_001" +
+                "\n   Ip : 20.199.120.167:3389"
+            );
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.vmIsStarted = false;
+          this.errored = true;
+        });
     },
   },
 };

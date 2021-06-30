@@ -21,6 +21,7 @@ export default {
   components: {
     Card,
   },
+
   data() {
     return {
       games: null,
@@ -28,8 +29,9 @@ export default {
       errored: false,
     };
   },
+
   created() {
-    // Simple GET request using axios
+    // GET request using axios to get all the games
     Axios.get("http://localhost:3000/api/games")
       .then((response) => (this.games = response.data))
       .catch((error) => {

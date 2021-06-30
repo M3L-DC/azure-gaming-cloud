@@ -13,20 +13,20 @@ app.use((req, res, next) => {
 
 app.use(express.json()); //parse the body into a json object
 
-//rout for one game
-app.post('api/games/:id/', (req, res, next) => {
-    console.log("envoie de l'id pour lancer la vm");
+//route to start the vm
+app.post('api/games/start_vm', (req, res, next) => {
+    console.log("start la vm");
     next();
 });
 
-//route for multiple games
-app.post('/api/games', (req, res, nex) => {
-    console.log(req.body);
-    res.status(201).json({
-        message: 'Objet créé !'
-    });
-});
+// app.post('/api/games', (req, res, nex) => {
+//     console.log(req.body);
+//     res.status(201).json({
+//         message: 'Objet créé !'
+//     });
+// });
 
+//route to get the games
 app.use('/api/games', (req, res, next) => {
     const games = 
     [
