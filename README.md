@@ -82,6 +82,6 @@ node server.js
 ---
 
 ## Login credentials 🔑
- - Identifiant : formateur@mail.com
- - Mot de passe : formateur1234
+ - Identifiant : user
+ - Mot de passe : password
 
