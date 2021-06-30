@@ -52,9 +52,11 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      const { username, password } = this;
       this.$router.push({ name: "Catalogue" });
-      this.$store.dispatch("signIn", { username, password });
+      this.$store.dispatch("signIn", {
+        username: this.username,
+        password: this.password,
+      });
     },
     onReset(event) {
       event.preventDefault();
