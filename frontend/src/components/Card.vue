@@ -38,7 +38,7 @@ export default {
           this.vmIsStarted = true;
 
           if (this.vmIsStarted) {
-            console.log("Demarrage de la VM");
+            console.log("Démarrage de la VM");
             alert("Demarrage de la VM");
             alert(
               "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +

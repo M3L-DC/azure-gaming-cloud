@@ -28,8 +28,7 @@ app.post('api/games/start_vm', (req, res, next) => {
 
 //route to get the games
 app.use('/api/games', (req, res, next) => {
-    const games = 
-    [
+    const games = [
         {
             _id: 1,
             title: 'Tourelle',
@@ -42,6 +41,18 @@ app.use('/api/games', (req, res, next) => {
         },
     ];
     res.status(200).json(games);
+});
+
+//route to get the games
+app.use('/api/users', (req, res, next) => {
+    const users = [
+        {
+            id: 1,
+            username: "user",
+            password: "password",
+        }
+    ]
+    res.status(200).json(users);
 });
 
 module.exports = app;
