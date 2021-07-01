@@ -23,12 +23,14 @@ import Axios from "axios";
 export default {
   name: "Card",
   props: ["title", "active", "imgUrl"],
+  
   data() {
     return {
       vmIsStarted: false,
       errored: false,
     };
   },
+
   methods: {
     Play() {
       // POST request using axios to start the vm
@@ -49,6 +51,7 @@ export default {
           }
         })
         .catch((error) => {
+          console.log("error vm");
           console.log(error);
           this.vmIsStarted = false;
           this.errored = true;

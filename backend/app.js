@@ -1,8 +1,7 @@
 const express = require('express');
+const {spawn} = require('child_process');
 const app = express();
 
-// const shell = require('shelljs')
-// shell.exec('./path_to_your_file'); //exec a shell file
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -13,20 +12,40 @@ app.use((req, res, next) => {
 
 app.use(express.json()); //parse the body into a json object
 
-//route to start the vm
 app.post('api/games/start_vm', (req, res, next) => {
     console.log("start la vm");
+    var dataToSend;
+    const python = spawn('python', ['script_start.py']);
+    python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        dataToSend = data.toString();
+    });
+
+    python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        // send data to browser
+        res.send(dataToSend)
+    });
     next();
 });
 
-// app.post('/api/games', (req, res, nex) => {
-//     console.log(req.body);
-//     res.status(201).json({
-//         message: 'Objet créé !'
-//     });
-// });
+app.post('api/games/stop_vm', (req, res, next) => {
+    console.log("stop la vm");
+    var dataToSend;
+    const python = spawn('python', ['script_stop.py']);
+    python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        dataToSend = data.toString();
+    });
 
-//route to get the games
+    python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        // send data to browser
+        res.send(dataToSend)
+    });
+    next();
+});
+
 app.use('/api/games', (req, res, next) => {
     const games = [
         {
@@ -43,7 +62,6 @@ app.use('/api/games', (req, res, next) => {
     res.status(200).json(games);
 });
 
-//route to get the games
 app.use('/api/users', (req, res, next) => {
     const users = [
         {
