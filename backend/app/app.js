@@ -15,7 +15,7 @@ app.use(express.json()); //parse the body into a json object
 app.post('api/games/start_vm', (req, res, next) => {
     console.log("start la vm");
     var dataToSend;
-    const python = spawn('python', ['script_start.py']);
+    const python = spawn('python', ['./scripts/script_start.py']);
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
         dataToSend = data.toString();
@@ -32,7 +32,7 @@ app.post('api/games/start_vm', (req, res, next) => {
 app.post('api/games/stop_vm', (req, res, next) => {
     console.log("stop la vm");
     var dataToSend;
-    const python = spawn('python', ['script_stop.py']);
+    const python = spawn('python', ['./scripts/script_stop.py']);
     python.stdout.on('data', function (data) {
         console.log('Pipe data from python script ...');
         dataToSend = data.toString();
