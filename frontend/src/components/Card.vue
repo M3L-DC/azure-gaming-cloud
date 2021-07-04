@@ -10,10 +10,24 @@
         img-top
         class="mb-3"
       />
-      <button class="btn-play" variant="dark" @click="Play" v-if="active">
+      <button
+        class="btn-play"
+        variant="dark"
+        @click="Play"
+        v-if="active && !isLaunched"
+      >
         Play
       </button>
+      <button
+        class="mt-2 btn-play"
+        variant="dark"
+        @click="Stop"
+        v-if="active && isLaunched"
+      >
+        Stop VM
+      </button>
     </b-card>
+    <div v-if="error" class="mt-5 alert alert-danger">{{ error }}</div>
   </div>
 </template>
 
@@ -26,34 +40,66 @@ export default {
 
   data() {
     return {
-      vmIsStarted: false,
-      errored: false,
+      isLaunched: false,
+      isLoading: false,
+      error: "",
     };
   },
 
   methods: {
     Play() {
+      alert("Demarrage de la VM");
+      this. error = "",
+      this.isLoading = true;
       // POST request using axios to start the vm
       Axios.post("http://localhost:3000/api/games/start_vm")
         .then((response) => {
           console.log(response);
-          // this.vmIsStarted = true;
 
-          if (this.vmIsStarted) {
+          if (response.data.vmIsRunning) {
             console.log("Démarrage de la VM");
-            alert("Demarrage de la VM");
-            alert(
-              "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
-                "\n   Identifiant : user_" +
-                "\n   Mot de passe : Password_001" +
-                "\n   Ip : 20.199.120.167:3389"
-            );
+            setTimeout(() => {
+              this.isLoading = false;
+              this.isLaunched = true;
+              alert(
+                "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
+                  "\n   Identifiant : user_" +
+                  "\n   Mot de passe : Password_001" +
+                  "\n   Ip : 20.199.120.167:3389"
+              );
+            }, 30000);
           }
         })
         .catch((error) => {
           console.log("error vm");
           console.log(error);
-          this.errored = true;
+          this.isLoading = false;
+          this.error = error;
+        });
+    },
+    async Stop() {
+      alert("Arret de la VM");
+      this. error = "",
+      this.isLoading = true;
+      // POST request using axios to start the vm
+      Axios.post("http://localhost:3000/api/games/stop_vm")
+        .then((response) => {
+          console.log(response);
+
+          if (response.data.vmIsStopped) {
+            console.log("Arret de la VM");
+            setTimeout(() => {
+              this.isLaunched = false;
+              this.isLoading = false;
+              alert("VM Arreté");
+            }, 81000);
+          }
+        })
+        .catch((error) => {
+          console.log("error vm");
+          console.log(error);
+          this.isLoading = false;
+          this.error = error;
         });
     },
   },

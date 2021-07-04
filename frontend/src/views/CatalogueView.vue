@@ -10,12 +10,16 @@
         />
       </div>
     </div>
+    <div v-show="loading">
+      
+    </div>
   </div>
 </template>
 
 <script>
 import Card from "../components/Card.vue";
 import Axios from "axios";
+// import { TrinityRingsSpinner } from "epic-spinners";
 
 export default {
   components: {

@@ -34,6 +34,23 @@ module.exports = {
             }
           });
         },
+        function (callback) {
+          //////////////////////////
+          /// Deallocate the VM. ///
+          //////////////////////////
+          console.log('\n>>>>>>> Start deallocating the VM: ' + vmName);
+          computeClient.virtualMachines.deallocate(resourceGroupName, vmName, function (err, result) {
+            if (err) {
+              console.log(util.format('\n/!\ Error: while deallocating the VM:\n%s', 
+                util.inspect(err, { depth: null })));
+              callback(err);
+            } else {
+              console.log(util.format('\n>>>>>>> Deallocate the VM is successful.\n%s', 
+                util.inspect(result, { depth: null })));
+              callback(null, result);
+            }
+          });
+        },
       ],
       //final callback to be run after all the tasks
       function (err, results) {
@@ -43,7 +60,6 @@ module.exports = {
         } else {
           console.log(util.format('\n>>>>>>> All the operations have completed successfully. ' + 
             'The final set of results are as follows:\n%s', util.inspect(results, { depth: null })));
-          console.log(util.format('\n\n-->Please execute the following script for cleanup:\nnode cleanup.js %s %s', resourceGroupName, vmName));
         }
         return;
       });

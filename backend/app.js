@@ -14,21 +14,24 @@ app.use((req, res, next) => {
 app.use(express.json()); //parse the body into a json object
 
 
-app.post('/api/games/start_vm', (req, res, next) => {
-    console.log("start la vm");
-    Start
-    .play()
-    .then(res.status(201).json({ message: 'VM démarré avec succès !' }))
-    .catch(err => res.status(500).json({error: JSON.stringify(err)}));
-    next();
+app.post('/api/games/start_vm', (req, res) => {
+    try {
+        console.log("start la vm");
+        Start.play();
+        res.status(201).json({ message: 'VM demmarré avec succès !', vmIsRunning: true });
+    } catch (e) {
+        res.status(500).json({ error: JSON.stringify(e), vmIsRunning: true });
+    }
 });
 
-app.post('/api/games/stop_vm', (req, res, next) => {
-    console.log("stop la vm");
-    Stop.stop()
-    .then(res.status(201).json({ message: 'VM stoppé avec succès !' }))
-    .catch(err => res.status(500).json({error: JSON.stringify(err)}));
-    next();
+app.post('/api/games/stop_vm', (req, res) => {
+    try {
+        console.log("stop la vm");
+        Stop.stop();
+        res.status(201).json({ message: 'VM stoppé avec succès !', vmIsStopped: true });
+    } catch (e) {
+        res.status(500).json({ error: JSON.stringify(e), vmIsStopped: false });
+    }
 });
 
 

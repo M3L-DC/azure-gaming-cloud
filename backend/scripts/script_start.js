@@ -43,7 +43,6 @@ module.exports = {
         } else {
           console.log(util.format('\n>>>>>>> All the operations have completed successfully. ' + 
             'The final set of results are as follows:\n%s', util.inspect(results, { depth: null })));
-          console.log(util.format('\n\n-->Please execute the following script for cleanup:\nnode cleanup.js %s %s', resourceGroupName, vmName));
         }
         return;
       });
