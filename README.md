@@ -48,16 +48,6 @@ yarn install
 yarn serve
 ```
 
-#### Créer/Lancer une production
-```
-yarn build
-```
-
-#### Lints and fixes files
-```
-yarn lint
-```
-
 #### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
@@ -85,3 +75,21 @@ node server.js
  - Identifiant : user
  - Mot de passe : password
 
+
+---
+
+## FAQ ❓❔❓ et autre infos sympa 😉👍
+1 - Shutdown automatique 
+
+Un shutdown automatique de la vm est realisé à 00:00 chaque jour. Merci de realisé les tests avant cette heure ci.
+
+2 - Que se passe t-il quand je clique sur play ?
+
+Un premier message indiquant que la machine virtuelle s'allume s'affche.
+Puis un deuxième apparaitra lorsque celle ci sera allumé.
+Et enfin, un dernier message s'affichera avec les identifiants et l'ip de la vm pour se connecter a distance (avec le rdp)
+
+3 - Que se passe t-il quand je clique sur stop ?
+
+Un premier message indiquant que la machine virtuelle s'étteind s'affche.
+Puis un deuxième apparaitra lorsque celle ci sera etteinte.
