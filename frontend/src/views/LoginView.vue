@@ -47,15 +47,21 @@ export default {
       username: "",
       password: "",
       show: true,
+      error: "",
+      isOnError: false,
     };
   },
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      this.$router.push({ name: "Catalogue" });
       this.$store.dispatch("signIn", {
         username: this.username,
         password: this.password,
+      }).then(() => {
+        this.$router.push({ name: "Catalogue" });
+      }).catch(() => {
+        this.isOnError = true;
+        this.error = "Erreur dans les identifiants"
       });
     },
     onReset(event) {

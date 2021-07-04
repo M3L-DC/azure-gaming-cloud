@@ -37,7 +37,7 @@ export default {
       Axios.post("http://localhost:3000/api/games/start_vm")
         .then((response) => {
           console.log(response);
-          this.vmIsStarted = true;
+          // this.vmIsStarted = true;
 
           if (this.vmIsStarted) {
             console.log("Démarrage de la VM");

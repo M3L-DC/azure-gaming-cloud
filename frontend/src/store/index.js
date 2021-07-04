@@ -21,16 +21,15 @@ export default new Vuex.Store({
     signIn({ commit }, { username, password }){
       return new Promise((success, reject) => {
         if (username == "user" && password == "password") { 
-          success(commit('AUTHENTICATE_USER'));
+          commit('AUTHENTICATE_USER');
+          success();
         }
         else { 
           e => { reject(e) }
         }
-      }) 
-
-      // if(username == "user" && password == "password"){ commit('AUTHENTICATE_USER'); } 
-      // else { e => { return Promise.reject(e) } }
+      })
     },
+    
     logout({ commit }){
       commit('LOGOUT');
     },
