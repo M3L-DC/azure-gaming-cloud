@@ -1,6 +1,6 @@
 const express = require('express');
-const Start = require('./script_start.js');
-const Start = require('./script_stop.js');
+const Start = require('./scripts/script_start.js');
+const Stop = require('./scripts/script_stop.js');
 const app = express();
 
 
@@ -16,13 +16,18 @@ app.use(express.json()); //parse the body into a json object
 
 app.post('/api/games/start_vm', (req, res, next) => {
     console.log("start la vm");
-    Start.play();
+    Start
+    .play()
+    .then(res.status(201).json({ message: 'VM démarré avec succès !' }))
+    .catch(err => res.status(500).json({error: JSON.stringify(err)}));
     next();
 });
 
 app.post('/api/games/stop_vm', (req, res, next) => {
     console.log("stop la vm");
-    Start.stop();
+    Stop.stop()
+    .then(res.status(201).json({ message: 'VM stoppé avec succès !' }))
+    .catch(err => res.status(500).json({error: JSON.stringify(err)}));
     next();
 });
 
