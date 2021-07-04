@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     currentUser: {
       authenticated: false
-    }
+    },
+    loading: false
   },
   mutations: {
     AUTHENTICATE_USER(state) {
@@ -15,7 +16,13 @@ export default new Vuex.Store({
     },
     LOGOUT(state) {
       state.currentUser.authenticated = false;
-    }
+    },
+    IS_LOADING(state){
+      state.loading = true;
+    },
+    IS_NOT_LOADING(state){
+      state.loading = false;
+    },
   },
   actions: {
     signIn({ commit }, { username, password }){
@@ -28,10 +35,15 @@ export default new Vuex.Store({
           e => { reject(e) }
         }
       })
-    },
-    
+    },    
     logout({ commit }){
       commit('LOGOUT');
+    },
+    isLoading({ commit }){
+      commit('IS_LOADING');
+    },
+    isNotLoading({ commit }){
+      commit('IS_NOT_LOADING');
     },
   },
   getters: {

@@ -10,16 +10,12 @@
         />
       </div>
     </div>
-    <div v-show="loading">
-      
-    </div>
   </div>
 </template>
 
 <script>
 import Card from "../components/Card.vue";
 import Axios from "axios";
-// import { TrinityRingsSpinner } from "epic-spinners";
 
 export default {
   components: {
@@ -29,8 +25,7 @@ export default {
   data() {
     return {
       games: null,
-      loading: true,
-      errored: false,
+      isLoading: false,
     };
   },
 
@@ -38,10 +33,7 @@ export default {
     // GET request using axios to get all the games
     Axios.get("http://localhost:3000/api/games")
       .then((response) => (this.games = response.data))
-      .catch((error) => {
-        console.log(error);
-        this.errored = true;
-      });
+      .catch((err) => { console.log(err) });
   },
 };
 </script>

@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       isLaunched: false,
-      isLoading: false,
       error: "",
     };
   },
@@ -49,8 +48,9 @@ export default {
   methods: {
     Play() {
       alert("Demarrage de la VM");
-      this. error = "",
-      this.isLoading = true;
+      this.error = "", 
+      this.$store.dispatch("isLoading"); // ==> this.isLoading = true;
+
       // POST request using axios to start the vm
       Axios.post("http://localhost:3000/api/games/start_vm")
         .then((response) => {
@@ -59,7 +59,7 @@ export default {
           if (response.data.vmIsRunning) {
             console.log("Démarrage de la VM");
             setTimeout(() => {
-              this.isLoading = false;
+              this.$store.dispatch("isNotLoading"); // ==> this.isLoading = false;
               this.isLaunched = true;
               alert(
                 "Lancez le jeu sur un bureau disant en utilisant les données suivante :" +
@@ -73,14 +73,15 @@ export default {
         .catch((error) => {
           console.log("error vm");
           console.log(error);
-          this.isLoading = false;
+          this.$store.dispatch("isNotLoading"); // ==> this.isLoading = false;
           this.error = error;
         });
     },
     async Stop() {
       alert("Arret de la VM");
-      this. error = "",
-      this.isLoading = true;
+      this.error = "", 
+      this.$store.dispatch("isLoading"); // ==> this.isLoading = true;
+
       // POST request using axios to start the vm
       Axios.post("http://localhost:3000/api/games/stop_vm")
         .then((response) => {
@@ -90,7 +91,7 @@ export default {
             console.log("Arret de la VM");
             setTimeout(() => {
               this.isLaunched = false;
-              this.isLoading = false;
+              this.$store.dispatch("isNotLoading"); // ==> this.isLoading = false;
               alert("VM Arreté");
             }, 81000);
           }
@@ -98,7 +99,7 @@ export default {
         .catch((error) => {
           console.log("error vm");
           console.log(error);
-          this.isLoading = false;
+          this.$store.dispatch("isNotLoading"); // ==> this.isLoading = false;
           this.error = error;
         });
     },
