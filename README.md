@@ -35,8 +35,17 @@ Le projet est decomposé en plusieurs partie :
 * le backend : qui contient l'api
 
 ---
+## Project setup
 
-## Project setup (Front) 🚀
+Installation a faire pour demmarer le projet
+
+### Get the project 👨🏼‍🤝‍👨🏼➿
+
+```
+git clone https://github.com/M3L-DC/azure-gaming-cloud-app.git
+```
+
+### Project setup (Front) 🚀
 
 #### Installation
 ```
@@ -53,7 +62,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ---
 
-## Project setup (Back) 🛸
+### Project setup (Back) 🛸
 
 #### Installation
 ```
