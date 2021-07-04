@@ -1,10 +1,3 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for
- * license information.
- */
-// 'use strict';
-
 var util = require('util');
 var async = require('async');
 var msRestAzure = require('ms-rest-azure');

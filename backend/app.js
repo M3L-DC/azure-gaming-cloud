@@ -1,5 +1,6 @@
 const express = require('express');
 const Start = require('./script_start.js');
+const Start = require('./script_stop.js');
 const app = express();
 
 
@@ -21,7 +22,7 @@ app.post('/api/games/start_vm', (req, res, next) => {
 
 app.post('/api/games/stop_vm', (req, res, next) => {
     console.log("stop la vm");
-
+    Start.stop();
     next();
 });
 

@@ -1,10 +1,3 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for
- * license information.
- */
-// 'use strict';
-
 var util = require('util');
 var async = require('async');
 var msRestAzure = require('ms-rest-azure');
@@ -16,7 +9,6 @@ var secret = 'wlg-i.x9.AH_DdI2u86Z89.OH0s6AA86w4';
 var subscriptionId = 'ec13ab47-7db1-409f-9f63-891704b0a823';
 var resourceGroupName = 'azure-gaming-cloud';
 var vmName = 'azureGamingCloud';
-
 
 module.exports = {
   stop: function () {
