@@ -87,18 +87,18 @@ node server.js
 
 ---
 
-## FAQ ❓❔❓ et autre infos sympa 😉👍
+## FAQ ❓❔❓ et autres infos sympa 😉👍
 1 - Shutdown automatique 
 
-Un shutdown automatique de la vm est realisé à 00:00 chaque jour. Merci de realisé les tests avant cette heure ci.
+Un shutdown automatique de la vm est realisé à 00:00 chaque jour. Merci de realiser les tests avant cette heure ci.
 
 2 - Que se passe t-il quand je clique sur play ?
 
-Un premier message indiquant que la machine virtuelle s'allume s'affche.
-Puis un deuxième apparaitra lorsque celle ci sera allumé.
-Et enfin, un dernier message s'affichera avec les identifiants et l'ip de la vm pour se connecter a distance (avec le rdp)
+Un premier message indiquant que la machine virtuelle s'allume apparait.
+Puis un deuxième s'affiche lorsque celle ci sera allumé.
+Et enfin, un dernier message apparaitra avec les identifiants et l'ip de la vm pour se connecter à distance (avec le rdp).
 
 3 - Que se passe t-il quand je clique sur stop ?
 
-Un premier message indiquant que la machine virtuelle s'étteind s'affche.
+Un premier message indiquant que la machine virtuelle s'étteind s'affiche.
 Puis un deuxième apparaitra lorsque celle ci sera etteinte.
